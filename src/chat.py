@@ -6,8 +6,23 @@ def main():
     if not chain:
         print("Não foi possível iniciar o chat. Verifique os erros de inicialização.")
         return
-    
-    pass
+
+    print("Chat iniciado. Digite 'sair' para encerrar.\n")
+
+    while True:
+        print("Faça sua pergunta:")
+        question = input("PERGUNTA: ").strip()
+
+        if not question:
+            continue
+
+        if question.lower() in ["sair", "exit", "quit"]:
+            print("Encerrando o chat.")
+            break
+
+        answer = chain(question)
+        print(f"RESPOSTA: {answer}\n")
+        print("---\n")
 
 if __name__ == "__main__":
     main()
